@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "./Header";
 import Card from "./Card";
+import CardRight from "./CardRight";  
 
 const Wrapper = styled.section`
     position: fixed;
@@ -11,15 +11,25 @@ const Wrapper = styled.section`
     left: 0;
     background: ${props => props.background};
 `;
-
-
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+    margin-top: 10%;
+`;
 
 const Weather = () => {
+    
     return (
         <Wrapper background="#68A0F3">
-        <Header />
-        <Card />
+        <Container>
+            <Card />
+            <CardRight />
+        </Container>
         </Wrapper>
+        
     );
     }
 
