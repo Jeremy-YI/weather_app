@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
-import SearchIcon from '@mui/icons-material/Search';
+//import SearchIcon from '@mui/icons-material/Search';
 
 const Wrapper = styled.form`
   margin: 2rem;
@@ -15,26 +15,18 @@ const Input = styled.input`
   width: 50%;
 `;
 
-const Form = () => {
-  const [city, setCity] = useState("");
-  const handleChange = (e) => {
-    setCity(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(city);
-  };
+const Form = ({value, onSubmit, onChange}) => {
 
   return (
-    <Wrapper >
-      <SearchIcon />
+    <Wrapper  onSubmit={onSubmit}>
+      {/* <SearchIcon /> */}
       <Input
         type="text"
         placeholder="Search for a city"
-        value={city}
-        onChange={handleChange}
+        value={value}
+        onChange={onChange}
       />
-    <Button type="submit" onClick={handleSubmit}/>
+    <Button type="submit" />
     </Wrapper>
   );
 };
