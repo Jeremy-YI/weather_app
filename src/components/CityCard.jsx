@@ -8,20 +8,21 @@ import LONDON from '../assets/LONDON.jpeg'
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    margin: 2rem;
+    justify-content: space-between;
 `;
 
-const CardContainer = styled.div`
+const CardContainer = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: none;
+    border: none;
 `;
 
 const CardStyle = styled.img`
     width: 8rem;
     height: 10rem;
     border-radius: 10px;
-    margin-right: 1rem;
     &:hover {
         cursor: pointer;
         transform: scale(1.1);
@@ -36,7 +37,7 @@ const CityCard = () => {
     return(
     <Container>
         <CardContainer>
-            <CardStyle src={NYC} alt="NYC"/>
+            <CardStyle src={NYC} alt="NYC" />
             <Label>New York</Label> 
         </CardContainer>
         <CardContainer>

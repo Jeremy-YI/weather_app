@@ -17,7 +17,7 @@ const Container = styled.div`
   width: 80%;
   height: 80%;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 5%;
 `;
 
 const Weather = () => {
@@ -35,7 +35,7 @@ const Weather = () => {
   return (
     <Wrapper background="#68A0F3">
       <Container>
-        <CardForecast value={city} onChange={handleChange} onSubmit={handleSubmit} />
+        <CardForecast value={city} onChange={handleChange} onSubmit={handleSubmit} query={query || "Perth"} />
         <CardCurrent query={query || "Perth"} />
       </Container>
     </Wrapper>
