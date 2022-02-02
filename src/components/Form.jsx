@@ -4,9 +4,10 @@ import Button from "./Button";
 //import SearchIcon from '@mui/icons-material/Search';
 
 const Wrapper = styled.form`
-  margin: 2rem;
   display: flex;
   flex-direction: row;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 `;
 
 const Input = styled.input`

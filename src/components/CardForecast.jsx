@@ -1,30 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Form from "./Form";
 import CityCard from "./CityCard";
-//import axios from "axios";
+import Rain from "../assets/rain.png";
+import axios from "axios";
 
 const CardLeft = styled.div`
   background: #e3f6fe;
   flex: 0 0 60%;
   border-radius: 25px 0 0 25px;
   text-align: left;
+  padding: 0 2rem 0 2rem;
 `;
 
 const H2 = styled.h2`
   font-size: 1.5rem;
   font-weight: 300;
-  margin-left: 2rem;
   color: ${(props) => (props.primary ? "#e3f6fe" : "#03020d")};
+`;
+
+const Display = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ImgDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const ImgStyle = styled.img`
+  text-align: center;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const ParaStyle = styled.p`
-  margin-left: 2rem;
   color: ${(props) => (props.primary ? "#e3f6fe" : "#03020d")};
+  margin-bottom: 2rem;
 `;
 
 const Ui = styled.ul`
-
   list-style: none;
   padding: 0;
 `;
@@ -34,18 +54,82 @@ const Li = styled.li`
   padding: 0;
 `;
 
-const CardForecast = ({ value, onSubmit, onChange }) => {
+const CardForecast = ({ value, onSubmit, onChange, query }) => {
+  const [cityWeather, setCityWeather] = useState({});
+
+  useEffect(() => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const ForecastApi = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&days=3&q=${query}&aqi=no`;
+    axios.get(ForecastApi).then((res) => {
+      setCityWeather(res.data);
+    });
+  }, [query]);
+  if (!cityWeather.forecast) return null;
   return (
     <CardLeft>
       <Form value={value} onSubmit={onSubmit} onChange={onChange} />
       <H2>Weather Forecast</H2>
-      <CityCard/> 
+      <CityCard />
       <ParaStyle>Weekly forecast for the next 3 days</ParaStyle>
       <Ui>
         <Li>
-          <ParaStyle>Monday</ParaStyle>
-          <ParaStyle>Tuesday</ParaStyle>
-          <ParaStyle>Wednesday</ParaStyle>
+          <Display>
+            <ParaStyle>{cityWeather.forecast.forecastday[0].date}</ParaStyle>
+            <ImgDiv>
+              <ImgStyle src={Rain} alt="rain icon" />
+              <ParaStyle>
+                {cityWeather.forecast.forecastday[0].day.daily_chance_of_rain}%
+              </ParaStyle>
+            </ImgDiv>
+            <ImgStyle
+              src={cityWeather.forecast.forecastday[0].day.condition.icon}
+              alt="icon"
+            />
+            <ParaStyle>
+              {cityWeather.forecast.forecastday[0].day.maxtemp_c}°C
+            </ParaStyle>
+            <ParaStyle>
+              {cityWeather.forecast.forecastday[0].day.mintemp_c}°C
+            </ParaStyle>
+          </Display>
+          <Display>
+            <ParaStyle>{cityWeather.forecast.forecastday[1].date}</ParaStyle>
+            <ImgDiv>
+              <ImgStyle src={Rain} alt="rain icon" />
+              <ParaStyle>
+                {cityWeather.forecast.forecastday[1].day.daily_chance_of_rain}%
+              </ParaStyle>
+            </ImgDiv>
+            <ImgStyle
+              src={cityWeather.forecast.forecastday[1].day.condition.icon}
+              alt="icon"
+            />
+            <ParaStyle>
+              {cityWeather.forecast.forecastday[1].day.maxtemp_c}°C
+            </ParaStyle>
+            <ParaStyle>
+              {cityWeather.forecast.forecastday[1].day.mintemp_c}°C
+            </ParaStyle>
+          </Display>
+          <Display>
+            <ParaStyle>{cityWeather.forecast.forecastday[2].date}</ParaStyle>
+            <ImgDiv>
+              <ImgStyle src={Rain} alt="rain icon" />
+              <ParaStyle>
+                {cityWeather.forecast.forecastday[2].day.daily_chance_of_rain}%
+              </ParaStyle>
+            </ImgDiv>
+            <ImgStyle
+              src={cityWeather.forecast.forecastday[2].day.condition.icon}
+              alt="icon"
+            />
+            <ParaStyle>
+              {cityWeather.forecast.forecastday[2].day.maxtemp_c}°C
+            </ParaStyle>
+            <ParaStyle>
+              {cityWeather.forecast.forecastday[2].day.mintemp_c}°C
+            </ParaStyle>
+          </Display>
         </Li>
       </Ui>
     </CardLeft>
