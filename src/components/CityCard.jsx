@@ -32,22 +32,22 @@ const Label = styled.p`
     font-size: 1rem;
 `;
 
-const CityCard = ({onClickNYC}) => {
+const CityCard = ({onClickNYC, onClickSH, onClickSY, onClickLondon}) => {
     return(
     <Container>
         <CardContainer onClick={onClickNYC}>
             <CardStyle src={NYC} alt="NYC" />
             <Label>New York</Label> 
         </CardContainer>
-        <CardContainer > 
+        <CardContainer onClick={onClickSH}> 
             <CardStyle src={SHANGHAI} alt="SHANGHAI"/>
             <Label>Shanghai</Label>
         </CardContainer>
-        <CardContainer  >
+        <CardContainer  onClick={onClickSY}>
             <CardStyle src={SYDNEY} alt="SYDNEY"/>
             <Label>Sydney</Label>
         </CardContainer>
-        <CardContainer >
+        <CardContainer onClick={onClickLondon}>
             <CardStyle src={LONDON} alt="LONDON"/>
             <Label>London</Label>
         </CardContainer>

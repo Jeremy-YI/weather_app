@@ -54,7 +54,16 @@ const Li = styled.li`
   padding: 0;
 `;
 
-const CardForecast = ({ value, onSubmit, onChange, query, onClickNYC }) => {
+const CardForecast = ({
+  value,
+  onSubmit,
+  onChange,
+  query,
+  onClickNYC,
+  onClickSH,
+  onClickSY,
+  onClickLondon,
+}) => {
   const [cityWeather, setCityWeather] = useState({});
 
   useEffect(() => {
@@ -69,7 +78,12 @@ const CardForecast = ({ value, onSubmit, onChange, query, onClickNYC }) => {
     <CardLeft>
       <Form value={value} onSubmit={onSubmit} onChange={onChange} />
       <H2>Weather Forecast</H2>
-      <CityCard onClickNYC={onClickNYC} />
+      <CityCard
+        onClickNYC={onClickNYC}
+        onClickSH={onClickSH}
+        onClickSY={onClickSY}
+        onClickLondon={onClickLondon}
+      />
       <ParaStyle>Weekly forecast for the next 3 days</ParaStyle>
       <Ui>
         <Li>
