@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background: teal;
-    font-family: Open-Sans, Helvetica, Sans-Serif;
+    font-family: Museo-Sans-500, Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 `;
 

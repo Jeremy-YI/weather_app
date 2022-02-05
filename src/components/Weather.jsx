@@ -18,6 +18,9 @@ const Container = styled.div`
   height: 80%;
   margin: 0 auto;
   margin-top: 5%;
+
+  @media (max-width: 768px) {
+    width: 60%;
 `;
 
 const Weather = () => {
@@ -28,14 +31,21 @@ const Weather = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(city);
     city === "" ? alert("Please enter a city") : setQuery(city);
   };
+
+  // console.log(navigator.geolocation)
 
   return (
     <Wrapper background="#68A0F3">
       <Container>
-        <CardForecast value={city} onChange={handleChange} onSubmit={handleSubmit} query={query || "Perth"} />
+        <CardForecast
+          value={city}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          query={query || "Perth"}
+          onClickNYC={() => setQuery("New York")}
+        />
         <CardCurrent query={query || "Perth"} />
       </Container>
     </Wrapper>
