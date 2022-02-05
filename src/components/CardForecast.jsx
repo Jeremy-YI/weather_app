@@ -15,7 +15,7 @@ const CardLeft = styled.div`
 
 const H2 = styled.h2`
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: bold;
   color: ${(props) => (props.primary ? "#e3f6fe" : "#03020d")};
 `;
 
@@ -33,8 +33,8 @@ const ImgDiv = styled.div`
 const ImgStyle = styled.img`
   text-align: center;
   align-self: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
 `;
@@ -54,7 +54,7 @@ const Li = styled.li`
   padding: 0;
 `;
 
-const CardForecast = ({ value, onSubmit, onChange, query }) => {
+const CardForecast = ({ value, onSubmit, onChange, query, onClickNYC }) => {
   const [cityWeather, setCityWeather] = useState({});
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const CardForecast = ({ value, onSubmit, onChange, query }) => {
     <CardLeft>
       <Form value={value} onSubmit={onSubmit} onChange={onChange} />
       <H2>Weather Forecast</H2>
-      <CityCard />
+      <CityCard onClickNYC={onClickNYC} />
       <ParaStyle>Weekly forecast for the next 3 days</ParaStyle>
       <Ui>
         <Li>
