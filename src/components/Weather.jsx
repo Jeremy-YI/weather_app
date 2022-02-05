@@ -45,6 +45,9 @@ const Weather = () => {
           onSubmit={handleSubmit}
           query={query || "Perth"}
           onClickNYC={() => setQuery("New York")}
+          onClickSH={() => setQuery("Shanghai")} 
+          onClickSY={() => setQuery("Sydney")}
+          onClickLondon={() => setQuery("London")}
         />
         <CardCurrent query={query || "Perth"} />
       </Container>
