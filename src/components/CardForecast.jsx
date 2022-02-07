@@ -11,6 +11,13 @@ const CardLeft = styled.div`
   border-radius: 25px 0 0 25px;
   text-align: left;
   padding: 0 2rem 0 2rem;
+  @media (max-width: 991px) {
+    padding: 0 1rem 0 1rem;
+    border-radius: 25px 25px 0 0;
+  }
+  @media (max-width: 574px) {
+    border-radius: 0;
+  }
 `;
 
 const H2 = styled.h2`

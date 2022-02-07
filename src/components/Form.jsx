@@ -14,6 +14,9 @@ const Input = styled.input`
   border: none;
   height: 2rem;
   width: 50%;
+  @media (max-width: 574px) {
+    width: 80%;
+  };
 `;
 
 const Form = ({value, onSubmit, onChange}) => {

@@ -19,8 +19,15 @@ const Container = styled.div`
   margin: 0 auto;
   margin-top: 5%;
 
-  @media (max-width: 768px) {
-    width: 60%;
+  @media (max-width: 991px) {
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+  @media (max-width: 574px) {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
 `;
 
 const Weather = () => {

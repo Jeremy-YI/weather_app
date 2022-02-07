@@ -6,9 +6,12 @@ import SYDNEY from '../assets/SYDNEY.jpeg'
 import LONDON from '../assets/LONDON.jpeg'
 
 const Container = styled.div`
+    display: none;
+    @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    }
 `;
 
 const CardContainer = styled.button`
@@ -26,6 +29,10 @@ const CardStyle = styled.img`
     &:hover {
         cursor: pointer;
         transform: scale(1.1);
+    }
+    @media (max-width: 991px) {
+        width: 6rem;
+        height: 8rem;
     }
 `;
 const Label = styled.p`
