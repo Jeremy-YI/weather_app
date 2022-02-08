@@ -4,7 +4,7 @@ import CardForecast from "./CardForecast";
 import CardCurrent from "./CardCurrent";
 
 const Wrapper = styled.section`
-  position: fixed;
+  position: relative;
   width: 100%;
   height: 100%;
   top: 0;
