@@ -20,7 +20,6 @@ const H2 = styled.h2`
   margin-top: -16rem;
   margin-bottom: 2rem;
   font-size: 1.5rem;
-  font-weight: 300;
   text-align: center;
   color: ${(props) => (props.primary ? "#e3f6fe" : "#03020d")};
   text-transform: capitalize;
@@ -71,7 +70,6 @@ const ParaStyle = styled.p`
   color: #e3f6fe;
   font-size: ${(props) => (props.primary ? "1rem" : "5rem")};
   text-align: center;
-  margin-bottom: 0;
   @media (max-width: 991px) {
     font-size: ${(props) => (props.primary ? "1rem" : "3rem")};
   }
