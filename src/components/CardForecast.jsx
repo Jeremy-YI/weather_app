@@ -75,7 +75,7 @@ const CardForecast = ({
 
   useEffect(() => {
     const API_KEY = process.env.REACT_APP_API_KEY;
-    const ForecastApi = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&days=3&q=${query}&aqi=no`;
+    const ForecastApi = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&days=3&q=${query}&aqi=no`;
     axios.get(ForecastApi).then((res) => {
       setCityWeather(res.data);
     });

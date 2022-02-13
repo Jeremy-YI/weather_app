@@ -83,7 +83,7 @@ const CardCurrent = ({ query }) => {
 
   useEffect(() => {
     const API_KEY = process.env.REACT_APP_API_KEY;
-    const CurrentApi = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${query}&aqi=no`;
+    const CurrentApi = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${query}&aqi=no`;
     axios.get(CurrentApi).then((res) => {
       setCityWeather(res.data);
     });
