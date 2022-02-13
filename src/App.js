@@ -1,13 +1,12 @@
-import Weather from "./components/Weather";
-import GlobalStyle from "./GlobalStyle";
-import Footer from "./components/Footer";
+import Home from "./Home";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <GlobalStyle />
-      <Weather />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }
